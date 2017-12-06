@@ -23,5 +23,4 @@ public class DespawnSnow : MonoBehaviour {
             Destroy(collider.gameObject);
         }
     }
-
 }

@@ -13,18 +13,19 @@ public class SpawnSnow : MonoBehaviour {
 	void Start ()
     {
         spawnerLenght = this.gameObject.transform.localScale.x;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        SpawnSnowflake();
+        StartCoroutine(SpawnSnowflake());
 	}
 
-    void SpawnSnowflake()
+    IEnumerator SpawnSnowflake()
     {
         float snowflakePosX = UnityEngine.Random.Range(0, spawnerLenght);
         Vector3 snowflakePos = new Vector3(this.gameObject.transform.localScale.x / 2 - snowflakePosX, this.gameObject.transform.position.y);
         Instantiate(snowFlake, snowflakePos, this.gameObject.transform.rotation);
+        yield return 0;
     }
 }
